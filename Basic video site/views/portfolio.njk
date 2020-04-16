@@ -1,0 +1,42 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
+{% endblock %}
+{% block content %}
+
+<div id="wrapper">
+    <h1>Aulas</h1>
+</div>
+
+<section class="cards">
+{% for item in items%}
+    <div class="card"  id="{{item.id}}">
+            <div class="cardimg {{ 'featured-wrapper' if item.featured}}">
+                <img src="https://img.youtube.com/vi/{{item.id}}/hqdefault.jpg" alt="Imagem de {{item.title}}">
+                {% if item.featured%}
+                <div class="featured">Featured</div>
+                {% endif %}
+            </div>
+
+            <div class="cardc">
+                <p>{{item.title}}</p>
+            </div>
+
+            <div class="cardinf">
+             <p>{{item.duration}}</p>
+             <p class="cardprice">{{item.price}}</p>
+            </div>
+        </div>
+{% endfor %}
+</section>
+                                                            
+
+
+
+<script src="/scripts.js"></script>
+
+{% endblock %}
+
